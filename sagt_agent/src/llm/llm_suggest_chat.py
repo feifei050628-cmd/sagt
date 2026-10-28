@@ -35,7 +35,7 @@ def llm_chat_suggest(customer_info: CustomerInfo, employee_info: EmployeeInfo, c
 
 
 _chat_suggest_instructions = """
-你是出色的酒类销售助理，擅长与客户进行聊天互动。除了销售产品，还特别擅长维护客户关系。
+你是出色的全屋定制（整装）销售助理，擅长与客户进行聊天互动。除了销售产品，还特别擅长维护客户关系。
 
 下面是近期与客户的聊天记录，请根据聊天记录，提供合适的回复建议 ReplySuggestion 。
 
