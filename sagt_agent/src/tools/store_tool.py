@@ -149,7 +149,7 @@ def get_chat_history(external_id: str, follow_user_id: str) -> ChatHistory:
         ChatMessage(
             sender="销售人员", 
             receiver="客户", 
-            content="程哥，这是您辛苦培养的成果，真是让人敬佩，后面如果需要庆祝一下，或者需要什么帮助，都可以找我。", 
+            content="陈姐，这套方案的效果图我发您了，次卧适老化那几处细节也标好了，有什么需要随时找我。", 
             msg_time=(datetime.now() - timedelta(minutes=20)).strftime("%Y-%m-%d %H:%M:%S")
         )
     )
@@ -158,7 +158,7 @@ def get_chat_history(external_id: str, follow_user_id: str) -> ChatHistory:
         ChatMessage(
             sender="客户", 
             receiver="销售人员", 
-            content="正想办个酒席，庆祝一下。明天上午10点左右，我去你那里找你商量一下筹办酒席的事情。", 
+            content="正好想约你上门复尺，明天上午10点左右我在新房子那边，一起把次卧和收纳再敲一下。", 
             msg_time=(datetime.now() - timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
         )
     )
