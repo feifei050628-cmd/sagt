@@ -1,6 +1,10 @@
 """
 SAGT 演示数据初始化脚本
 
+业务场景：木言整装 · 高端全屋定制
+销冠（员工）：梁硕   user_id = LiangShuo
+客户：陈曼（陈姐）   改善型住房业主，三居改四居
+
 用于初始化企业标签、员工客户信息、聊天记录和订单数据的演示脚本。
 """
 
@@ -60,9 +64,9 @@ class DemoDataInitializer:
             logger.info("演示数据初始化完成！")
             
         except Exception as e:
-            logger.error(f"数据初始化失败: {e}")
+            logger.error(f"初始化演示数据失败: {e}")
             raise
-    
+
     def init_tags(self):
         """初始化企业标签"""
         logger.info("正在初始化企业标签...")
@@ -73,30 +77,31 @@ class DemoDataInitializer:
         # 基础属性标签
         basic_tags = [
             {"tag_id": "stE8gRKQAA-dAKMiJZw1MP4s_drOAh2Q", "tag_name": "高净值客户",   "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAAA7TJ7kvuKMeAA7FmcDY8Wg", "tag_name": "中年男性",     "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAA7TJ7kvuKMeAA7FmcDY8Wg", "tag_name": "中年女性",     "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
             {"tag_id": "stE8gRKQAAdN5SvmZoNc5n6Up12dPp-A", "tag_name": "已婚有子女",   "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
             {"tag_id": "stE8gRKQAAJvszKCI8cCQJ0paQP2u9Wg", "tag_name": "家有老人",     "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAJvszKCI8cCQJ0paQP2u9W1", "tag_name": "养宠家庭",     "group_id": "stE8gRKQAA4U6yUFhEhAXQ1BHZ5jt0_Q", "group_name": "基础属性", "strategy_id": 2, "deleted": False},
         ]
         
         # 消费行为标签
         buy_tags = [
-            {"tag_id": "stE8gRKQAA3EbL1cO0YS0cyupiATvFqA", "tag_name": "酱香白酒偏好", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAAhRYl-8b_Z2hzcimwynFIEA", "tag_name": "茅台收藏",     "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAASj3DlY9G97EkhUBZmlwgrg", "tag_name": "高频团购",     "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAAEJGWP7O1vHTDZn4ep0fWxQ", "tag_name": "节日礼品采购", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAAo-zv5-_oEWt__adANrQK1Q", "tag_name": "高端红酒需求", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAA3EbL1cO0YS0cyupiATvFqA", "tag_name": "整装全屋定制", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAhRYl-8b_Z2hzcimwynFIEA", "tag_name": "环保板材偏好", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAASj3DlY9G97EkhUBZmlwgrg", "tag_name": "智能家居配套", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAEJGWP7O1vHTDZn4ep0fWxQ", "tag_name": "软装家电连带", "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAo-zv5-_oEWt__adANrQK1Q", "tag_name": "高客单增项",   "group_id": "stE8gRKQAAdkLtKRp5u1HBHTYaGDbHhA", "group_name": "消费行为", "strategy_id": 2, "deleted": False},
         ]
         
         # 社交关系标签
         social_tags = [
-            {"tag_id": "stE8gRKQAAkgEe-7wvit1OPLqaUV55Hg", "tag_name": "商务宴请多",   "group_id": "stE8gRKQAA3IKjjLIzWF7sZ1gy8UJzYQ", "group_name": "社交关系", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAA4yE1-7IkO8SzvIOsCQej9A", "tag_name": "家庭聚会多",   "group_id": "stE8gRKQAA3IKjjLIzWF7sZ1gy8UJzYQ", "group_name": "社交关系", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAkgEe-7wvit1OPLqaUV55Hg", "tag_name": "转介绍意愿强", "group_id": "stE8gRKQAA3IKjjLIzWF7sZ1gy8UJzYQ", "group_name": "社交关系", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAA4yE1-7IkO8SzvIOsCQej9A", "tag_name": "邻里口碑传播", "group_id": "stE8gRKQAA3IKjjLIzWF7sZ1gy8UJzYQ", "group_name": "社交关系", "strategy_id": 2, "deleted": False},
         ]
         
         # 服务敏感度标签
         service_tags = [
-            {"tag_id": "stE8gRKQAAT4k2ZHMxooZjfORj-AdH4A", "tag_name": "需优先预留",      "group_id": "stE8gRKQAAYywcJoxIOzqvDLm5XSXi_g", "group_name": "服务敏感度", "strategy_id": 2, "deleted": False},
-            {"tag_id": "stE8gRKQAAzZCHpp3W4sDwt1vO_EQyVQ", "tag_name": "依赖专业鉴酒服务", "group_id": "stE8gRKQAAYywcJoxIOzqvDLm5XSXi_g", "group_name": "服务敏感度", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAT4k2ZHMxooZjfORj-AdH4A", "tag_name": "工期敏感",         "group_id": "stE8gRKQAAYywcJoxIOzqvDLm5XSXi_g", "group_name": "服务敏感度", "strategy_id": 2, "deleted": False},
+            {"tag_id": "stE8gRKQAAzZCHpp3W4sDwt1vO_EQyVQ", "tag_name": "依赖设计师1v1服务", "group_id": "stE8gRKQAAYywcJoxIOzqvDLm5XSXi_g", "group_name": "服务敏感度", "strategy_id": 2, "deleted": False},
         ]
         
         
@@ -127,7 +132,7 @@ class DemoDataInitializer:
         # 1. 创建员工信息
         employee_data = {
             "user_id": SAGT_USER_ID,
-            "name": "小张",
+            "name": "梁硕",
         }
         
         try:
@@ -142,8 +147,8 @@ class DemoDataInitializer:
         # 2. 创建客户信息
         customer_data = {
             "external_id": SAGT_EXTERNAL_ID,
-            "name": "dacheng",
-            "remark_name": "程哥",
+            "name": "陈曼",
+            "remark_name": "陈姐",
             "union_id": "union001",
             "follow_user_id": SAGT_USER_ID,
             "tags": ["etE8gRKQAANeNZh8ttsqCe-S-XIEsPdQ", "etE8gRKQAA6xbQIT5mE62_WSKeiWVbAg", "etE8gRKQAAdm3IQ7SVSEtb5BrRzQJHnQ"]
@@ -172,55 +177,51 @@ class DemoDataInitializer:
 
         # 企业微信聊天记录
         wxqy_messages = [
-            # 中秋茅台预订对话
-            {"seq": 1, "msg_id": "wxqy_001", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-09-22 09:15:00"), "content": "大程哥，今天刚到两箱飞天茅台，给您留了一箱，需要的话随时联系！"},
-            {"seq": 2, "msg_id": "wxqy_002", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-09-22 09:20:00"), "content": "太好了小张！正好中秋节要用，这箱给我留着，下午我来拿。"},
-            {"seq": 3, "msg_id": "wxqy_003", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-09-22 09:22:00"), "content": "没问题！我帮您开好发票，还是老规矩走会员价。"},
-            
-            # 老爷子生日寿宴对话
-            {"seq": 4, "msg_id": "wxqy_004", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-08 11:05:00"), "content": "程哥，您上次说老爷子十月生日？需要寿宴用酒的话提前说，我调货。"},
-            {"seq": 5, "msg_id": "wxqy_005", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-10-08 11:15:00"), "content": "正想找你！六十大寿要办五桌，推荐下？"},
-            {"seq": 6, "msg_id": "wxqy_006", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-08 11:20:00"), "content": "建议主桌用茅台，其他桌用红花郎15年，喜庆又实惠，我按团购价算。"},
-            
-            # 寿宴醒酒服务对话
-            {"seq": 7, "msg_id": "wxqy_007", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-10-09 10:20:00"), "content": "老弟，老爷子寿宴想加个醒酒区，你们能提供解酒饮料吗？"},
-            {"seq": 8, "msg_id": "wxqy_008", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-09 10:25:00"), "content": "配套送三箱解酒灵和定制矿泉水，都印寿字，放心！"},
-            
-            # 五粮液新包装咨询
-            {"seq": 9, "msg_id": "wxqy_009", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-11-03 14:05:00"), "content": "小张，听说五粮液出新包装了？口感有变化吗？"},
-            {"seq": 10, "msg_id": "wxqy_010", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-11-03 14:10:00"), "content": "是的哥！新版防伪升级了，酒体还是第八代经典，我尝过和原来一样醇香。要给您带两瓶试试吗？"},
-            
-            # 酱香酒储存方法讨论
-            {"seq": 11, "msg_id": "wxqy_011", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-01-07 10:12:00"), "content": "[转发文章《酱香酒储存方法》] 小张你看这说法靠谱不？"},
-            {"seq": 12, "msg_id": "wxqy_012", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-01-07 10:20:00"), "content": "哥，这文章第三点不对，茅台存放要避光但不需要裹保鲜膜，我给您发个专业指南。"},
-            
-            # 茅台生肖酒预订
-            {"seq": 13, "msg_id": "wxqy_013", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-01-12 09:30:00"), "content": "哥，今天到货两瓶茅台生肖酒，知道您收藏，优先问您。"},
-            {"seq": 14, "msg_id": "wxqy_014", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-01-12 09:33:00"), "content": "要了！明天转账，千万别给别人。"},
-            
-            # 澳洲奔富红酒咨询
-            {"seq": 15, "msg_id": "wxqy_015", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-04-03 14:22:00"), "content": "小张，你们公司红酒有澳洲奔富吗？领导夫人爱喝。"},
-            {"seq": 16, "msg_id": "wxqy_016", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-04-03 14:25:00"), "content": "有！Bin389和407都有现货，建议配个礼盒，送领导体面。"},
-            
-            # 茅台跑酒检测
-            {"seq": 17, "msg_id": "wxqy_017", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-05-10 16:45:00"), "content": "[图片：酒柜照片] 小张帮我看看这瓶15年茅台是不是有点跑酒？"},
-            {"seq": 18, "msg_id": "wxqy_018", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-05-10 16:50:00"), "content": "看着封膜完好，重量标一下？我拿专业秤给您复核。"},
-            
-            # 女士甜酒推荐
-            {"seq": 19, "msg_id": "wxqy_019", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-19 15:10:00"), "content": "小张，有没有适合女士的甜酒？媳妇闺蜜聚会要用。"},
-            {"seq": 20, "msg_id": "wxqy_020", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-06-19 15:15:00"), "content": "推荐冰酒或莫斯卡托，包装精美，我这有加拿大进口的。"},
-            
-            # 德国啤酒烧烤配酒
-            {"seq": 21, "msg_id": "wxqy_021", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-06-26 17:30:00"), "content": "程哥，您上次说的德国啤酒到货了，周末烧烤可以备上了。"},
-            {"seq": 22, "msg_id": "wxqy_022", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-26 17:35:00"), "content": "来得正好！再配点下酒小食，明天一起拿。"},
-            
-            # 升职祝贺与客户关系维护
-            {"seq": 23, "msg_id": "wxqy_023", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-26 18:15:00"), "content": "小张，听说你要升销售经理了？到时候别忘老客户啊！"},
-            {"seq": 24, "msg_id": "wxqy_024", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-06-26 18:20:00"), "content": "全靠程哥你们支持！放心，您的茅台配额只会多不会少。"},
-            
-            # 子女教育关怀与庆祝
-            {"seq": 25, "msg_id": "wxqy_025", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-08-03 10:30:00"), "content": "程哥，您儿子中考成绩出来了吧？听说考上重点高中了？"},
-            {"seq": 26, "msg_id": "wxqy_026", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-03 10:35:00"), "content": "哈哈对！实验中学重点班，这小子比他爹强！"}
+            # 量房后方案沟通
+            {"seq": 1, "msg_id": "wxqy_001", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-09-22 09:15:00"), "content": "陈姐，昨天量房的数据我整理好了，三居改四居的方案今晚发您，先给您看个同户型的落地效果。"},
+            {"seq": 2, "msg_id": "wxqy_002", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-09-22 09:20:00"), "content": "好啊，我最关心的是收纳，家里东西实在太多了。"},
+            {"seq": 3, "msg_id": "wxqy_003", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-09-22 09:22:00"), "content": "明白，我按顶天立地柜+榻榻米+玄关组合给您排，储物量能多出四成左右。"},
+
+            # 邀约看样板间
+            {"seq": 4, "msg_id": "wxqy_004", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-08 11:05:00"), "content": "陈姐，国庆这两天样板间开放，盐系原木那套就是您说的风格，要不要实地看看？"},
+            {"seq": 5, "msg_id": "wxqy_005", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-10-08 11:15:00"), "content": "想去！不过我女儿补课，只有周末上午有空。"},
+            {"seq": 6, "msg_id": "wxqy_006", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-08 11:20:00"), "content": "那约周六上午十点，我让设计师一起在，现场给您改方案。"},
+
+            # 宠物与板材细节
+            {"seq": 7, "msg_id": "wxqy_007", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-10-09 10:20:00"), "content": "对了，我家猫特别爱抓沙发，你们板材耐不耐抓？"},
+            {"seq": 8, "msg_id": "wxqy_008", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-10-09 10:25:00"), "content": "客厅和主卧建议用实木贴皮+耐磨烤漆，猫抓不留痕，我给您加了隐形防抓条。"},
+
+            # 竞品比价
+            {"seq": 9, "msg_id": "wxqy_009", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-11-03 14:05:00"), "content": "我对比了索菲亚和欧派，你们贵了快四万，凭什么？"},
+            {"seq": 10, "msg_id": "wxqy_010", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-11-03 14:10:00"), "content": "姐，差价主要在五金和环保等级：我们是ENF级爱格板+百隆阻尼铰链，质保十年，他们多是E0级颗粒板。"},
+            {"seq": 11, "msg_id": "wxqy_011", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2025-11-03 14:30:00"), "content": "环保这点我信你，我妈有鼻炎，甲醛这块不能有闪失。"},
+            {"seq": 12, "msg_id": "wxqy_012", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2025-11-03 14:35:00"), "content": "放心，完工后我给您安排第三方CMA甲醛检测，不合格我们全额整改。"},
+
+            # 增项顾虑
+            {"seq": 13, "msg_id": "wxqy_013", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-01-07 10:12:00"), "content": "[转发文章《装修增项的十个坑》] 小梁你看看，我不会也被增项吧？"},
+            {"seq": 14, "msg_id": "wxqy_014", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-01-07 10:20:00"), "content": "姐，我们是闭口合同，柜体之外的任何增项都要您签字才生效，我把它写进合同附件。"},
+
+            # 签单与预算拉锯
+            {"seq": 15, "msg_id": "wxqy_015", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-01-12 09:30:00"), "content": "姐，年底工厂要放假，这周签单能赶上年前排产，开春就安装，孩子开学前能住进去。"},
+            {"seq": 16, "msg_id": "wxqy_016", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-01-12 09:33:00"), "content": "行，这周我去店里。不过预算我爱人卡在42万，超了要念我。"},
+            {"seq": 17, "msg_id": "wxqy_017", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-01-12 09:40:00"), "content": "我给您做了41.8万的版本，主卧衣柜按原方案，次卧降到平板门，差价我做成老客户优惠单。"},
+
+            # 开工与工期
+            {"seq": 18, "msg_id": "wxqy_018", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-03-02 15:10:00"), "content": "合同签了，什么时候能开工？"},
+            {"seq": 19, "msg_id": "wxqy_019", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-03-02 15:15:00"), "content": "下周进场拆除，工期65天，我拉个专属群，每天给您发进度照片。"},
+            {"seq": 20, "msg_id": "wxqy_020", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-03-28 09:40:00"), "content": "邻居说装修噪音大，我怕被投诉。"},
+            {"seq": 21, "msg_id": "wxqy_021", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-03-28 09:45:00"), "content": "我们已办装修备案，施工只在工作日9-12点、14-18点，周末静音施工，物业那边我提前打招呼。"},
+
+            # 安装验收与售后
+            {"seq": 22, "msg_id": "wxqy_022", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-04-15 16:20:00"), "content": "柜体装好了，效果真不错！就是主卧柜门有点异响。"},
+            {"seq": 23, "msg_id": "wxqy_023", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-04-15 16:25:00"), "content": "明天让安装师傅上门调铰链，顺带给全屋柜体做一次免费保养。"},
+
+            # 转介绍
+            {"seq": 24, "msg_id": "wxqy_024", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-19 10:05:00"), "content": "我同事最近也要装修，能介绍给你吗？"},
+            {"seq": 25, "msg_id": "wxqy_025", "from_id": SAGT_USER_ID, "to_id": SAGT_EXTERNAL_ID, "msg_time": datetime2timestamp("2026-06-19 10:10:00"), "content": "太感谢姐了！她签单我给您申请5000元答谢金，或者等价的全屋深度保洁套餐。"},
+
+            # 二次需求
+            {"seq": 26, "msg_id": "wxqy_026", "from_id": SAGT_EXTERNAL_ID, "to_id": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-03 11:00:00"), "content": "下个月我妈来住两个月，次卧那块还能加个扶手吗？"},
         ]
         
         # 批量创建企业微信消息
@@ -247,96 +248,101 @@ class DemoDataInitializer:
         # {"msg_id": "msg_kf_001", "external_id": "dacheng001", "open_kfid": "kf001", "servicer_userid": "xiaozhang", "msg_time": 600, "origin": 5, msgtype": "text", "content": "关于定制化方案的详细信息，我已经发送到您的邮箱"}
         # 微信客服聊天记录
         wxkf_messages = [
-            # 茅台现货咨询和酒价评估
-            {"msg_id": "msg_kf_001", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 09:05:00"), "origin": 3, "msgtype": "text", "content": "请问现在53度飞天茅台有现货吗？需要两箱送客户。"},
-            {"msg_id": "msg_kf_002", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 09:10:00"), "origin": 5, "msgtype": "text", "content": "程先生您好！目前飞天茅台需预约申购，本月批次预计下周到货。您是我们的VIP客户，可以优先为您登记需求~"},
-            {"msg_id": "msg_kf_003", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 14:20:00"), "origin": 3, "msgtype": "text", "content": "这瓶2019年的茅台酒线在这里，现在值多少钱？"},
-            {"msg_id": "msg_kf_004", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 14:25:00"), "origin": 5, "msgtype": "text", "content": "根据当前行情，您这瓶酒体保存完好（酒线在肩部以上），回收价约3800元。需要帮您联系专业鉴定师上门评估吗？"},
-            
-            # 到货通知和产品咨询
-            {"msg_id": "msg_kf_005", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 11:00:00"), "origin": 5, "msgtype": "text", "content": "程先生，您预约的茅台到货通知已开启，到货后将第一时间短信提醒。另提醒您账户积分可兑换两瓶红酒哦~"},
-            {"msg_id": "msg_kf_006", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 15:15:00"), "origin": 3, "msgtype": "text", "content": "你们店里的五粮液第八代和第七代有什么区别？包装能发图看看吗？"},
-            {"msg_id": "msg_kf_007", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 15:20:00"), "origin": 5, "msgtype": "text", "content": "主要区别：1. 第八代瓶盖增加扫码防伪 2. 瓶身“五粮液”logo立体感更强 3. 酒体勾调更醇柔。建议您优先选择新版~"},
-            
-            # 售后服务和养护提醒
-            {"msg_id": "msg_kf_008", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 10:05:00"), "origin": 3, "msgtype": "text", "content": "上次买的剑南春礼盒里开瓶器断了，能补发吗？"},
-            {"msg_id": "msg_kf_009", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 10:10:00"), "origin": 5, "msgtype": "text", "content": "非常抱歉！已登记补发高端开瓶器套装（含醒酒器），另赠送小瓶品鉴酒作为补偿，预计明天送达。"},
-            {"msg_id": "msg_kf_010", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 16:30:00"), "origin": 5, "msgtype": "text", "content": "温馨提示：您收藏的2017年茅台建议本月做一次专业养护，我们可安排免费上门密封检测服务。"},
-            
-            # 生肖酒价格咨询
-            {"msg_id": "msg_kf_011", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-04 13:40:00"), "origin": 3, "msgtype": "text", "content": "问下茅台生肖酒马年和羊年的现在什么价？有回收渠道吗？"},
-            {"msg_id": "msg_kf_012", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-04 13:45:00"), "origin": 5, "msgtype": "text", "content": "当前市场参考价：马年约1.8万/瓶，羊年约3.2万/瓶。公司合作拍卖行正在征集优质藏品，需提供您酒的重量和品相照片~"},
+            # 柜门异响
+            {"msg_id": "msg_kf_001", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 09:05:00"), "origin": 3, "msgtype": "text", "content": "柜门异响都两周了，还没解决。"},
+            {"msg_id": "msg_kf_002", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 09:10:00"), "origin": 5, "msgtype": "text", "content": "陈女士您好，已加急派单，师傅明天10点上门，这次直接为您更换一组新阻尼铰链~"},
 
-            # 红酒咨询
-            {"msg_id": "msg_kf_013", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-05 18:10:00"), "origin": 3, "msgtype": "text", "content": "朋友送了箱红酒全是外文看不懂，帮忙查下什么档次？"},
-            {"msg_id": "msg_kf_014", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-05 18:15:00"), "origin": 5, "msgtype": "text", "content": "查询到是意大利安东尼世家2016年份DOCG级，市场价约680元/瓶，适合搭配红肉饮用。需要帮您预约专业醒酒服务吗？"},
+            # 台面发霉
+            {"msg_id": "msg_kf_003", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 14:20:00"), "origin": 3, "msgtype": "text", "content": "厨房台面接缝处发黑，是不是渗水了？"},
+            {"msg_id": "msg_kf_004", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-01 14:25:00"), "origin": 5, "msgtype": "text", "content": "已登记，师傅上门会带防霉胶重做密封，并做48小时闭水测试~"},
 
-            # 新品通知和养生酒咨询
-            {"msg_id": "msg_kf_015", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-06 09:20:00"), "origin": 5, "msgtype": "text", "content": "程先生，您关注的酱香型酒新品——习酒窖藏1988已到店，欢迎随时来品鉴！"},
-            {"msg_id": "msg_kf_016", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-06 14:50:00"), "origin": 3, "msgtype": "text", "content": "你们有没有适合老人的养生酒？老爷子想要药酒类。"},
-            {"msg_id": "msg_kf_017", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-06 14:55:00"), "origin": 5, "msgtype": "text", "content": "推荐两款：1. 茅台不老酒（含黄精等药材）2. 同仁堂国公酒。都可提供药材检测报告，支持货到验货~"},
+            # 智能设备配网
+            {"msg_id": "msg_kf_005", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 11:00:00"), "origin": 3, "msgtype": "text", "content": "你们的智能灯带连不上App怎么办？"},
+            {"msg_id": "msg_kf_006", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 11:10:00"), "origin": 5, "msgtype": "text", "content": "麻烦把网关断电重启后长按配网键5秒，我同步发您图文教程；仍不行就安排师傅上门调试~"},
 
-            # 发票咨询
-            {"msg_id": "msg_kf_018", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-07 10:30:00"), "origin": 3, "msgtype": "text", "content": "买茅台开发票抬头能开会议费吗？"},
-            {"msg_id": "msg_kf_019", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-07 10:35:00"), "origin": 5, "msgtype": "text", "content": "按规定酒类发票需如实开具品名，但可以备注会议用酒。建议分单开具便于报销，具体可咨询您公司财务要求~"},
+            # 增项收费争议
+            {"msg_id": "msg_kf_007", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 15:15:00"), "origin": 3, "msgtype": "text", "content": "增项我没签字，为什么账单多了3800？"},
+            {"msg_id": "msg_kf_008", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-02 15:20:00"), "origin": 5, "msgtype": "text", "content": "已核对，是您爱人现场确认加的厨房拉篮，我补一份签字件给您；如不符可全额退回~"},
 
-            # 到货通知和延期提货
-            {"msg_id": "msg_kf_020", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-08 08:00:00"), "origin": 5, "msgtype": "text", "content": "您预约的茅台已到货！请于48小时内凭预约码到店提货，需携带身份证原件哦~"},
-            {"msg_id": "msg_kf_021", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-08 08:05:00"), "origin": 3, "msgtype": "text", "content": "提货能不能晚两天？我在外地出差。"},
-            {"msg_id": "msg_kf_022", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-08 08:10:00"), "origin": 5, "msgtype": "text", "content": "已为您特殊延长保留~需要安排送货上门服务吗？（需另付200元运费）"},
+            # 甲醛检测报告
+            {"msg_id": "msg_kf_009", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 10:05:00"), "origin": 3, "msgtype": "text", "content": "甲醛检测报告什么时候给我？"},
+            {"msg_id": "msg_kf_010", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 10:10:00"), "origin": 5, "msgtype": "text", "content": "CMA报告已出具，主卧0.03mg/m³、客厅0.04mg/m³，均优于国标，原件今天寄出~"},
 
-            # 防伪咨询
-            {"msg_id": "msg_kf_023", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-15 19:15:00"), "origin": 3, "msgtype": "text", "content": "这个茅台防伪标怎么扫码没反应？"},
-            {"msg_id": "msg_kf_024", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-15 19:20:00"), "origin": 5, "msgtype": "text", "content": "经核查该批次需用专用检测笔照射，建议您暂停饮用！明天上午10点鉴定师将上门服务，已同步通知门店经理。"},
+            # 适老化加装
+            {"msg_id": "msg_kf_011", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 16:30:00"), "origin": 3, "msgtype": "text", "content": "我妈下个月来住，次卧想加个扶手。"},
+            {"msg_id": "msg_kf_012", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-03 16:35:00"), "origin": 5, "msgtype": "text", "content": "已登记为老客户关爱服务，免费加装隐形扶手+地面防滑处理，预计三个工作日内完成~"},
 
-            # 活动提醒和渠道咨询
-            {"msg_id": "msg_kf_025", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-16 11:30:00"), "origin": 5, "msgtype": "text", "content": "程先生，您参加的老酒换新活动还剩3天，用空瓶兑换可享新品8折优惠~"},
-            {"msg_id": "msg_kf_026", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-16 15:25:00"), "origin": 3, "msgtype": "text", "content": "你们和京东自营的茅台有什么区别？"},
-            {"msg_id": "msg_kf_027", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-16 15:30:00"), "origin": 5, "msgtype": "text", "content": "核心区别：1. 我们是一级经销商直供 2. 全程恒温物流 3. 提供专业存酒指导 4. 可验货后付款。附上我们的渠道授权书供查验~"},
+            # 宠物抓花补件
+            {"msg_id": "msg_kf_013", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-04 13:40:00"), "origin": 3, "msgtype": "text", "content": "猫把柜门板抓花了，能补一块吗？"},
+            {"msg_id": "msg_kf_014", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-04 13:45:00"), "origin": 5, "msgtype": "text", "content": "可以补，单块门板260元；建议同时加装防抓条，老客户价80元每米~"},
 
-            # 年会用酒咨询
-            {"msg_id": "msg_kf_028", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-17 12:40:00"), "origin": 3, "msgtype": "text", "content": "有没有适合年会用的中档白酒？预算500左右/瓶。"},
-            {"msg_id": "msg_kf_029", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-17 12:45:00"), "origin": 5, "msgtype": "text", "content": "推荐三款：1. 红花郎15年（酱香）2. 品味舍得（浓香）3. 水井坊臻酿八号。可提供免费定制瓶身祝福语服务！"},
+            # 保修卡
+            {"msg_id": "msg_kf_015", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-05 18:10:00"), "origin": 3, "msgtype": "text", "content": "保修卡丢了，影响保修吗？"},
+            {"msg_id": "msg_kf_016", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-05 18:15:00"), "origin": 5, "msgtype": "text", "content": "不影响，我们按合同编号保修，柜体质保十年、五金五年，我给您补发电子保修卡~"},
 
-            # 珍藏酒咨询
-            {"msg_id": "msg_kf_030", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-03 11:00:00"), "origin": 3, "msgtype": "text", "content": "现在有什么珍藏酒推荐吗？"}
+            # 发票
+            {"msg_id": "msg_kf_017", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-06 09:20:00"), "origin": 3, "msgtype": "text", "content": "发票能开成装修服务费吗？"},
+            {"msg_id": "msg_kf_018", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-06 09:25:00"), "origin": 5, "msgtype": "text", "content": "可以，按实际项目分单开具；需要专票请提供公司开票信息，我帮您走财务加急~"},
+
+            # 加做餐边柜
+            {"msg_id": "msg_kf_019", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-07 10:30:00"), "origin": 3, "msgtype": "text", "content": "我想再加一个餐边柜，多少钱？"},
+            {"msg_id": "msg_kf_020", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-07 10:35:00"), "origin": 5, "msgtype": "text", "content": "同色同材质1.2米餐边柜4800元，老客户9折，含上门测量和安装~"},
+
+            # 延期赔付
+            {"msg_id": "msg_kf_021", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-08 08:00:00"), "origin": 3, "msgtype": "text", "content": "你们延期了6天，按合同怎么赔？"},
+            {"msg_id": "msg_kf_022", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-08 08:05:00"), "origin": 5, "msgtype": "text", "content": "确认延期6天，按合同千分之二每天赔付共5016元，将直接抵扣尾款~"},
+
+            # 开荒保洁
+            {"msg_id": "msg_kf_023", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-15 19:15:00"), "origin": 3, "msgtype": "text", "content": "开荒保洁什么时候安排？"},
+            {"msg_id": "msg_kf_024", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-15 19:20:00"), "origin": 5, "msgtype": "text", "content": "安排在交付后第三天，含全屋开荒和柜体内部除尘，免费赠送~"},
+
+            # 板材检测报告
+            {"msg_id": "msg_kf_025", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-16 11:30:00"), "origin": 3, "msgtype": "text", "content": "我想看下当时用的板材检测报告。"},
+            {"msg_id": "msg_kf_026", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-06-16 11:35:00"), "origin": 5, "msgtype": "text", "content": "已发送爱格板ENF级检测报告，批号与合同附件一致，您注意查收~"},
+
+            # 转介绍优惠
+            {"msg_id": "msg_kf_027", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-03 11:00:00"), "origin": 3, "msgtype": "text", "content": "朋友是我推荐来的，有什么优惠？"},
+            {"msg_id": "msg_kf_028", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-03 11:05:00"), "origin": 5, "msgtype": "text", "content": "老客户转介绍可享同款方案92折，并赠送全屋除甲醛一次~"},
+
+            # 年度保养
+            {"msg_id": "msg_kf_029", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-05 15:10:00"), "origin": 3, "msgtype": "text", "content": "下次柜体保养大概什么时候？"},
+            {"msg_id": "msg_kf_030", "external_id": SAGT_EXTERNAL_ID, "open_kfid": "kf001", "servicer_userid": SAGT_USER_ID, "msg_time": datetime2timestamp("2026-08-05 15:15:00"), "origin": 5, "msgtype": "text", "content": "建议每年一次，明年4月我们会主动联系您预约，老客户免费~"},
         ]
-                
-        # 批量创建微信客服消息
+        
+        # 批量创建客服消息
         for msg in wxkf_messages:
             try:
                 self.store_client.upsert_wxkf_msg(
                     msg_id=msg["msg_id"],
-                    external_id=msg.get("external_id"),
-                    open_kfid=msg.get("open_kfid"),
-                    servicer_userid=msg.get("servicer_userid"),
-                    msg_time=msg.get("msg_time"),
-                    origin=msg.get("origin"),
-                    msgtype=msg.get("msgtype"),
-                    content=msg.get("content")
+                    external_id=msg["external_id"],
+                    open_kfid=msg["open_kfid"],
+                    servicer_userid=msg["servicer_userid"],
+                    content=msg["content"],
+                    msg_time=msg["msg_time"],
+                    origin=msg["origin"],
+                    msgtype=msg["msgtype"],
                 )
-                logger.info(f"创建微信客服消息: {msg['msg_id']}")
+                logger.info(f"创建客服消息: {msg['msg_id']}")
             except Exception as e:
-                logger.warning(f"微信客服消息 {msg['msg_id']} 可能已存在: {e}")
+                logger.warning(f"客服消息 {msg['msg_id']} 可能已存在: {e}")
         
-        logger.info(f"聊天记录初始化完成，共处理 {len(wxkf_messages)} 条消息")
-    
+        logger.info(f"微信客服聊天记录初始化完成，共处理 {len(wxkf_messages)} 条消息")
+
     def init_orders(self):
         """初始化订单记录"""
         logger.info("正在初始化订单记录...")
         
 
-        # {"union_id": "union_001","order_id": "order_001","open_id": "open_001","order_status": 100,"order_products": ["企业级解决方案"],"order_price": 2999.99,"order_create_time": base_create_time, "order_raw_info": {"memo": ""}}
-        # 微信小店订单记录
+        # 合同与增项、配套订单记录
         orders = [
-            {"union_id": "union001", "order_id": "WX20240905", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-09-05 10:00:00"), "order_price": 14999.00, "order_products": ["53度飞天茅台（2023年产-500ml×6瓶/箱）"], "order_raw_info": {"memo": "中秋礼品，需开礼品发票"}},
-            {"union_id": "union001", "order_id": "WX20240912", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-09-12 10:00:00"), "order_price": 2598.00,  "order_products": ["五粮液第八代普五（500ml×2瓶）"], "order_raw_info": {"memo": "家宴用，要求原箱未拆封"}},
-            {"union_id": "union001", "order_id": "WX20240918", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-09-15 10:00:00"), "order_price": 18240.00, "order_products": ["红花郎15年（500ml×4箱）"], "order_raw_info": {"memo": "父亲寿宴主用酒"}},
-            {"union_id": "union001", "order_id": "WX20240922", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-09-22 10:00:00"), "order_price": 3588.00, "order_products": ["茅台王子酒（酱香经典-500ml×12瓶）"], "order_raw_info": {"memo": "公司员工福利，需开发票"}},
-            {"union_id": "union001", "order_id": "WX20250328", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-03-28 10:00:00"), "order_price": 288.00, "order_products": ["德国爱士堡小麦啤酒（500ml×24听）"], "order_raw_info": {"memo": "家庭烧烤聚会用"}},
-            {"union_id": "union001", "order_id": "WX20250322", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-03-22 10:00:00"), "order_price": 3198.00, "order_products": ["茅台1935（新上市-500ml×2瓶）"], "order_raw_info": {"memo": "收藏用，要求序列号连号"}},
-            {"union_id": "union001", "order_id": "WX20250411", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-04-11 10:00:00"), "order_price": 5340.00, "order_products": ["奔富Bin407红酒（750ml×6瓶）"], "order_raw_info": {"memo": "送客户，配高档礼盒"}},
-            {"union_id": "union001", "order_id": "WX20250525", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-05-25 10:00:00"), "order_price": 896.00, "order_products": ["同仁堂国公酒（500ml×2瓶）"], "order_raw_info": {"memo": "送父亲养生酒"}},
+            {"union_id": "union001", "order_id": "HT20250928", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-09-28 10:00:00"), "order_price": 168000.00, "order_products": ["整装基础合同首款（全屋柜体定制 40%）"], "order_raw_info": {"memo": "签约当天支付，锁定年前排产"}},
+            {"union_id": "union001", "order_id": "HT20251105", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2025-11-05 10:00:00"), "order_price": 125000.00, "order_products": ["整装进度款（柜体生产完成 30%）"], "order_raw_info": {"memo": "进场安装前支付"}},
+            {"union_id": "union001", "order_id": "HT20260302", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-03-02 10:00:00"), "order_price": 83000.00,  "order_products": ["整装尾款（安装验收合格 20%）"], "order_raw_info": {"memo": "已扣除延期赔付 5016 元"}},
+            {"union_id": "union001", "order_id": "HT20260318", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-03-18 10:00:00"), "order_price": 12800.00,  "order_products": ["厨房拉篮升级", "餐边柜增项"], "order_raw_info": {"memo": "现场由客户爱人确认，后补签字件"}},
+            {"union_id": "union001", "order_id": "HT20260410", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-04-10 10:00:00"), "order_price": 26800.00,  "order_products": ["厨房家电包（烟灶套装+洗碗机+嵌入式蒸烤箱）"], "order_raw_info": {"memo": "客户要求与柜体同色面板"}},
+            {"union_id": "union001", "order_id": "HT20260506", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-05-06 10:00:00"), "order_price": 18600.00,  "order_products": ["软装包（窗帘+地毯+主卧床品四件套）"], "order_raw_info": {"memo": "风格盐系原木，客户指定色号"}},
+            {"union_id": "union001", "order_id": "HT20260612", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-06-12 10:00:00"), "order_price": 9800.00,   "order_products": ["智能家居包（全屋灯带+网关+场景面板）"], "order_raw_info": {"memo": "需与App配网，已安排上门调试"}},
+            {"union_id": "union001", "order_id": "HT20260708", "open_id": "open001", "order_status": 100,"order_create_time": datetime2timestamp("2026-07-08 10:00:00"), "order_price": 3980.00,   "order_products": ["延保服务包（延保三年+每年一次柜体保养）"], "order_raw_info": {"memo": "老客户专享价"}},
         ]
         
         # 批量创建订单
